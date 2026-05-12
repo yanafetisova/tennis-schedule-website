@@ -207,6 +207,78 @@
   </section>
 
   <section>
+  <details>
+    <summary>Men's Lessons</summary>
+
+    <table id="mensLessonsTable" style="margin-top:1rem;">
+      <thead>
+        <tr>
+          <th>Date & Time</th>
+          <th>Duration</th>
+          <th>Type</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </details>
+</section>
+
+<section>
+  <details>
+    <summary>Women's Lessons</summary>
+
+    <table id="womensLessonsTable" style="margin-top:1rem;">
+      <thead>
+        <tr>
+          <th>Date & Time</th>
+          <th>Duration</th>
+          <th>Type</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </details>
+</section>
+
+<section>
+  <details>
+    <summary>Kids Lessons</summary>
+
+    <table id="kidsLessonsTable" style="margin-top:1rem;">
+      <thead>
+        <tr>
+          <th>Date & Time</th>
+          <th>Duration</th>
+          <th>Type</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </details>
+</section>
+
+<section>
+  <details>
+    <summary>Summer Camp</summary>
+
+    <table id="summerCampTable" style="margin-top:1rem;">
+      <thead>
+        <tr>
+          <th>Date & Time</th>
+          <th>Duration</th>
+          <th>Type</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </details>
+</section>
+
+  <section>
     <h2>Block Time Manually / Manual Booking</h2>
     <form id="blockForm">
       <label for="blockDate">Date:</label>
@@ -234,6 +306,34 @@
         <option value="womens">Women's Lesson</option>
         <option value="kids">Kids Lesson</option>
       </select>
+
+<label for="bookingMode">Booking Mode:</label>
+
+<select id="bookingMode">
+  <option value="single">Single Date</option>
+  <option value="range">Multiple Days</option>
+  <option value="weekly">Weekly Recurring</option>
+</select>
+
+<div id="rangeFields" style="display:none; width:100%;">
+  <label for="endDate">End Date:</label>
+  <input type="date" id="endDate" />
+</div>
+
+<div id="weeklyFields" style="display:none; width:100%;">
+  <label for="weeklyUntil">Repeat Weekly Until:</label>
+  <input type="date" id="weeklyUntil" />
+
+  <div style="margin-top:1rem; width:100%;">
+    <label><input type="checkbox" class="weekday" value="1"> Mon</label>
+    <label><input type="checkbox" class="weekday" value="2"> Tue</label>
+    <label><input type="checkbox" class="weekday" value="3"> Wed</label>
+    <label><input type="checkbox" class="weekday" value="4"> Thu</label>
+    <label><input type="checkbox" class="weekday" value="5"> Fri</label>
+    <label><input type="checkbox" class="weekday" value="6"> Sat</label>
+    <label><input type="checkbox" class="weekday" value="0"> Sun</label>
+  </div>
+</div>
 
       <button type="submit" id="blockTimeBtn">Save Booking / Block</button>
     </form>
