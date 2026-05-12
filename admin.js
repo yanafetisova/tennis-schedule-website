@@ -74,8 +74,8 @@ const weeklyUntilInput =
   document.getElementById("weeklyUntil");
 
 function formatDateTime(date) {
-
   const options = {
+    timeZone: "America/Edmonton", // 🔥 фиксированная таймзона
     month: "short",
     day: "numeric",
     year: "numeric",
@@ -84,8 +84,7 @@ function formatDateTime(date) {
     hour12: true
   };
 
-  return date.toLocaleString(undefined, options);
-
+  return new Intl.DateTimeFormat("en-CA", options).format(date);
 }
 
 onAuthStateChanged(auth, (user) => {
