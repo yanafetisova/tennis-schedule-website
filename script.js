@@ -72,7 +72,7 @@ async function loadSlotsAndRenderCalendar() {
       color = "#388e3c";
       title = "Private Lesson";
     } else if (slot.status === "social") {
-      color = "#d7e17a";
+      color = "#55b86c";
       title = "Social Event";
     } else if (slot.status === "blocked") {
       color = "#666666";
