@@ -37,6 +37,9 @@ const kidsLessonsTable =
 const summerCampTable =
   document.querySelector("#summerCampTable tbody");
 
+const socialEventTable =
+document.querySelector("#socialEventTable tbody");
+
 const blockForm =
   document.getElementById("blockForm");
 
@@ -382,6 +385,18 @@ async function loadAllBookings() {
         );
 
       }
+
+      if (
+  slot.status === "social" &&
+  socialEventTable
+) {
+  renderGroupRow(
+    socialEventTable,
+    slot,
+    id
+  );
+  return;
+}
 
     });
 

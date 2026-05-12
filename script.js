@@ -71,11 +71,14 @@ async function loadSlotsAndRenderCalendar() {
     } else if (slot.status === "confirmed") {
       color = "#388e3c";
       title = "Private Lesson";
+    } else if (slot.status === "social") {
+      color = "#d7e17a";
+      title = "Social Event";
     } else if (slot.status === "blocked") {
       color = "#666666";
       title = "Blocked / Unavailable";
     } else if (slot.status === "summercamp") {
-      color = "#2e7d32";
+      color = "#2d612f";
       title = "Summer Camp";
     } else if (slot.status === "mens") {
       color = "#4caf50";
