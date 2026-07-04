@@ -20,6 +20,9 @@ const closeRegisterBtn = document.getElementById("closeRegister");
 const membershipModal = document.getElementById("membershipModal");
 const closeMembershipBtn = document.getElementById("closeMembership");
 
+const tennisAlbertaModal = document.getElementById("tennisAlbertaModal");
+const closeTennisAlbertaBtn = document.getElementById("closeTennisAlberta");
+
 let calendar = null;
 
 function generateTimeOptions() {
@@ -102,7 +105,7 @@ async function loadSlotsAndRenderCalendar() {
     }
 
     let extendedProps = {};
-    if (["summercamp", "mens", "womens", "kids"].includes(slot.status)) {
+    if (["summercamp", "mens", "womens", "kids", "tennisAlberta"].includes(slot.status)) {
       extendedProps = { showLink: true, type: slot.status };
     }
 
@@ -180,7 +183,13 @@ async function loadSlotsAndRenderCalendar() {
   if (arg.event.extendedProps.showLink && !arg.event.extendedProps.isPast) {
     const link = document.createElement("a");
     link.href = "#";
-    link.textContent = arg.event.extendedProps.type === "summercamp" ? "Register now" : "Get membership";
+    if (arg.event.extendedProps.type === "summercamp") {
+  link.textContent = "Register now";
+} else if (arg.event.extendedProps.type === "tennisAlberta") {
+  link.textContent = "Learn more";
+} else {
+  link.textContent = "Get membership";
+}
     link.style.color = "white";
     link.style.textDecoration = "underline";
     link.style.display = "inline-block";
@@ -194,14 +203,17 @@ async function loadSlotsAndRenderCalendar() {
     link.style.marginTop = "4px";
     link.style.cursor = "pointer";
 
-    link.addEventListener("click", (e) => {
-      e.preventDefault();
-      if (arg.event.extendedProps.type === "summercamp") {
-        registerModal.style.display = "flex";
-      } else {
-        membershipModal.style.display = "flex";
-      }
-    });
+link.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  if (arg.event.extendedProps.type === "summercamp") {
+    registerModal.style.display = "flex";
+  } else if (arg.event.extendedProps.type === "tennisAlberta") {
+    tennisAlbertaModal.style.display = "flex";
+  } else {
+    membershipModal.style.display = "flex";
+  }
+});
 
     container.appendChild(link);
   }
@@ -270,6 +282,18 @@ closeMembershipBtn.addEventListener("click", () => { membershipModal.style.displ
 
 registerModal.addEventListener("click", (e) => { if (e.target === registerModal) registerModal.style.display = "none"; });
 membershipModal.addEventListener("click", (e) => { if (e.target === membershipModal) membershipModal.style.display = "none"; });
+
+closeTennisAlbertaBtn.addEventListener("click", () => {
+  tennisAlbertaModal.style.display = "none";
+});
+
+tennisAlbertaModal.addEventListener("click", (e) => {
+  if (e.target === tennisAlbertaModal) {
+    tennisAlbertaModal.style.display = "none";
+  }
+});
+
+
 
 generateTimeOptions();
 restrictPastDates();
