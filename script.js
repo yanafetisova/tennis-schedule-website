@@ -89,6 +89,9 @@ async function loadSlotsAndRenderCalendar() {
     } else if (slot.status === "kids") {
       color = "#1b5e20";
       title = "Kids Lesson";
+    } else if (slot.status === "tennisAlberta") {
+      color = "#2a258b";
+      title = "Tennis Alberta Program";
     } else {
       color = "#4caf50";
       title = "Private Lesson";

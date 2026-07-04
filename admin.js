@@ -398,6 +398,18 @@ async function loadAllBookings() {
   return;
 }
 
+      if (
+  slot.status === "tennisAlberta" &&
+  tennisAlbertaTable
+) {
+  renderGroupRow(
+    tennisAlbertaTable,
+    slot,
+    id
+  );
+  return;
+}
+
     });
 
     futureConfirmed.sort(
